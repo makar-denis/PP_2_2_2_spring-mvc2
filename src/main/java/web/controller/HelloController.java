@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+//@RequestMapping("/")
 public class HelloController {
 
 	@GetMapping(value = "/")
@@ -20,5 +21,11 @@ public class HelloController {
 		model.addAttribute("messages", messages);
 		return "index";
 	}
+
+//	@GetMapping("/cars")
+//	public String car (ModelMap model){
+//
+//		return "cars";
+//	}
 	
 }
