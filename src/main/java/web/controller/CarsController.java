@@ -14,35 +14,19 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 @Controller
-@RequestMapping("/cars")
+@RequestMapping("/")
 public class CarsController {
 
     private ServisCars servisCars;
 
     @Autowired
     public CarsController(ServisCars servisCars) {
-        this.servisCars=servisCars;
+        this.servisCars = servisCars;
     }
 
-//    @GetMapping
-//    public String allCars(ModelMap model) {
-//        //Получаем все машины и передаем их на представление
-//
-//        model.addAttribute("listCars", servisCars.allCars());
-//
-//        return "cars";
-//    }
-//
-//    @GetMapping("/{id}")
-//    public String numberCars(@PathVariable("id") int id, ModelMap model){
-//        //Получаем нужное количество машин и передаем их на представление
-//        model.addAttribute("listCars", servisCars.countCars(id));
-//        return "cars";
-//    }
-
-        @GetMapping
-    public String allCars(@RequestParam(value = "count", defaultValue="5") int id, ModelMap model) {
-        model.addAttribute("listCars", servisCars.countCars(id));
+    @GetMapping("cars")
+    public String allCars(@RequestParam(value = "count", required = false, defaultValue = "0") int i, ModelMap model) {
+        model.addAttribute("listCars", servisCars.countCars(i));
         return "cars";
-        }
+    }
 }

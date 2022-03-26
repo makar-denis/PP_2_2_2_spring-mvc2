@@ -29,19 +29,8 @@ public class ServisCars {
         return listCars;
     }
 
-    public List<Cars> countCars(){
-        return listCars;
-    }
     public List<Cars> countCars(int i){
-        List<Cars> numberCars = new ArrayList<>();
-        if (i<5){
-            for (int j=0; j<i; j++){
-                numberCars.add(listCars.get(j));
-            }
-        } else {
-            numberCars.addAll(listCars);
-        }
-        return numberCars;
+        return i>0 && i<5 ? listCars.subList(0,i) : listCars;
     }
 
 }
